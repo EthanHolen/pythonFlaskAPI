@@ -9,16 +9,39 @@ data = [
     {"likes": 98, "name": "Video 3", "views": 30000}
 ]
 
+print('PUTS')
+
 
 for i in range(len(data)):
     response = requests.put(BASE + "video/" + str(i), data[i])
-    print(response.json)
+    print(response.json())
 
 
 # response = requests.delete(BASE + "video/0")
 # print(response)
 
-input()
+# input()
+print()
+print('GETS:')
+print()
 
-response = requests.get(BASE + "video/2")
+for i in range(len(data)):
+    response = requests.get(BASE + "video/" + str(i))
+    print(response.json())
+
+
+print()
+response = requests.patch(BASE + "video/2", {"name": "myCrazyVideo"})
+print(response.json())
+print()
+
+for i in range(len(data)):
+    response = requests.get(BASE + "video/" + str(i))
+    print(response.json())
+
+print()
+print('DELETES:')
+print()
+
+response = requests.delete(BASE + "video/2")
 print(response.json())
