@@ -31,17 +31,17 @@ for i in range(len(data)):
 
 
 print()
-response = requests.patch(BASE + "video/2", {"name": "myCrazyVideo"})
-print(response.json())
+print('DELETES:')
+print()
+
+for i in range(len(data)):
+    response = requests.delete(BASE + "video/" + str(i))
+    print(response)
+
+print()
+print('GETS:')
 print()
 
 for i in range(len(data)):
     response = requests.get(BASE + "video/" + str(i))
     print(response.json())
-
-print()
-print('DELETES:')
-print()
-
-response = requests.delete(BASE + "video/2")
-print(response.json())
